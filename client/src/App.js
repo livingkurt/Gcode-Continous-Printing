@@ -17,6 +17,20 @@ function App() {
 	const [ directory, set_directory ] = useState('');
 	const [ filename, set_filename ] = useState('');
 
+	const remove_print = `G1 X105 Y195 Z50 F8000 ; Move up and back
+  
+  M300 S3520 P200 ; A7
+  M300 S4698.868 P200 ; D8
+  M300 S5274.04 P200 ; E8
+  M300 S6271.93 P200 ; G8
+  
+  G1 X105 Y195 Z1 F8000 ; Lower
+  G1 X105 Y1 Z1 F8000 ; Remove Print
+  G1 X105 Y30 Z1 F8000 ; Shake it Out
+  G1 X105 Y1 Z1 F8000 ; Shake it Out
+  G1 X105 Y30 Z1 F8000 ; Shake it Out
+  `.split('\n');
+
 	const showFile_1 = async (e) => {
 		e.preventDefault();
 		const reader = new FileReader();
@@ -47,8 +61,8 @@ function App() {
 			let ending_1_boolean = true;
 
 			for (let i = gcode.length - 1; i >= gcode.length - 300; i--) {
-				if (gcode[i] === '; G4 ; wait') {
-					ending_1_array = [ ...ending_1_array, ';G4 ; wait' ];
+				if (gcode[i] === 'G4 ; wait') {
+					ending_1_array = [ ...ending_1_array, 'G4 ; wait' ];
 					ending_1_boolean = false;
 					middle_finished = i;
 					console.log({ middle_finished });
@@ -100,8 +114,8 @@ function App() {
 			let ending_2_boolean = true;
 
 			for (let i = gcode.length - 1; i >= gcode.length - 300; i--) {
-				if (gcode[i] === '; G4 ; wait') {
-					ending_2_array = [ ...ending_2_array, ';G4 ; wait' ];
+				if (gcode[i] === 'G4 ; wait') {
+					ending_2_array = [ ...ending_2_array, 'G4 ; wait' ];
 					ending_2_boolean = false;
 					middle_finished = i;
 					console.log({ middle_finished });
@@ -130,36 +144,27 @@ function App() {
 		let gcode_array = [ beginning_1 ];
 		console.log(number_of_copies);
 		if (number_of_copies === 2) {
-			gcode_array = [ ...gcode_array, middle_1, middle_2, ending_2 ];
+			gcode_array = [ ...gcode_array, middle_1, remove_print, middle_2, remove_print, ending_2 ];
 		} else if (number_of_copies > 2) {
-			gcode_array = [ ...gcode_array, middle_1, middle_2 ];
+			gcode_array = [ ...gcode_array, middle_1, remove_print, middle_2, remove_print ];
 			for (let i = 2; i < number_of_copies; i++) {
 				if (i % 2 === 0) {
 					console.log('odd');
-					gcode_array = [ ...gcode_array, middle_1 ];
+					gcode_array = [ ...gcode_array, middle_1, remove_print ];
 				} else if (i % 2 === 1) {
 					console.log('even');
-					gcode_array = [ ...gcode_array, middle_2 ];
+					gcode_array = [ ...gcode_array, middle_2, remove_print ];
 				}
 			}
 			gcode_array = [ ...gcode_array, ending_2 ];
 		}
 
 		console.log({ gcode_array });
-		// let gcode = gcode_array.join('\n');
-		// console.log({ gcode });
-
 		const array = gcode_array.map((item) => {
-			// console.log({ item: item.join('\n') });
 			return item.join('\n');
 		});
 		const gcode = array.join('\n');
 		console.log({ gcode });
-		// let gcode = gcode_inner_array.join('\n');
-		// update_filename(filename);
-		// const formData = new FormData();
-		// formData.append('file', file);
-		// console.log({ formData });
 		const response = await API.export_gcode(update_filename(filename), gcode);
 		console.log({ response });
 		// set_final_gcode(gcode);
