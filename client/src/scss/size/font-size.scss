@@ -1,0 +1,99 @@
+// $i: 0;
+// @while $i < 100 {
+// 	// do stuff
+// 	// $i: $i + 0.1;
+// 	font-size: $i + 0.1 + rem !important;
+// }
+
+// $max: 100;
+// $step: 0.1;
+
+// @for $i from 1 through ceil($max/$step) {
+// 	$value: ($i - 1)*$step + 1;
+// 	// stuff
+// 	font-size: $value + rem !important;
+// }
+// @for $i from 0 to 20 {
+// 	@for $h from 0 to 9 {
+// 		.fs-#{$i}-\.#{$h}rem {
+// 			font-size: $i + -\. + $h + rem !important;
+// 		}
+// 	}
+// }
+
+@for $i from 0 to 10 {
+	.fs-#{$i}rem {
+		font-size: \. + $i + rem !important;
+	}
+}
+@for $i from 0 to 10 {
+	.fs-#{$i}em {
+		font-size: $i + em !important;
+	}
+}
+
+@for $i from 0 to 100 {
+	.fs-#{$i}px {
+		font-size: $i + px !important;
+	}
+}
+
+.ff-h {
+  font-family: heading_font;
+}
+
+// .f-s-05 {
+// 	font-size: 0.5em;
+// }
+// .f-s-06 {
+// 	font-size: 0.6em;
+// }
+// .f-s-07 {
+// 	font-size: 0.7em;
+// }
+// .f-s-08 {
+// 	font-size: 0.8em;
+// }
+// .f-s-09 {
+// 	font-size: 0.9em;
+// }
+// .f-s-10 {
+// 	font-size: 1.0em;
+// }
+// .f-s-11 {
+// 	font-size: 1.1em;
+// }
+// .f-s-12 {
+// 	font-size: 1.2em;
+// }
+// .f-s-13 {
+// 	font-size: 1.3em;
+// }
+// .f-s-14 {
+// 	font-size: 1.4em;
+// }
+// .f-s-15 {
+// 	font-size: 1.5em;
+// }
+// .f-s-16 {
+// 	font-size: 1.6em;
+// }
+// .f-s-17 {
+// 	font-size: 1.7em;
+// }
+// .f-s-18 {
+// 	font-size: 1.8em;
+// }
+// .f-s-19 {
+// 	font-size: 1.9em;
+// }
+// .f-s-20 {
+// 	font-size: 2.0em;
+// }
+// .f-s-30 {
+// 	font-size: 3.0em;
+// }
+
+// .f-s-20 {
+// 	font-size: 20px;
+// }

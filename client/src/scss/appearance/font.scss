@@ -1,0 +1,49 @@
+// @font-face {
+// 	font-family: "phrase_font";
+// 	src: url("../fonts/Neou-Bold.otf");
+// }
+// @font-face {
+// 	font-family: "paragraph_font";
+// 	src: url("../fonts/UniNeue-Light.otf");
+// }
+
+// @font-face {
+// 	font-family: "heading_font";
+// 	src: url("../fonts/beyond_the_mountains.otf");
+// }
+
+$phrase_font: helvetica;
+$paragraph_font: helvetica;
+$heading_font: helvetica;
+$font_size: 1.6rem;
+
+
+.phrase_font {
+  font-family: $phrase_font;
+}
+.paragraph_font {
+  font-family: $paragraph_font;
+  -webkit-text-stroke: 1px white;
+  font-size: 1.7rem;
+  line-height: 3.4rem;
+  li {
+    line-height: 3.4rem;
+  }
+  // ul ol {
+  //   li {
+  //     line-height: 2rem;
+  //   }
+  // }
+
+ 
+  
+}
+.heading_font {
+  font-family: $heading_font;
+}
+
+@for $i from 0 to 1000 {
+	.fw-#{$i} {
+		font-weight: $i !important;
+	}
+}

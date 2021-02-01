@@ -1,0 +1,10 @@
+// @font-face {
+// 	font-family: "heading_font";
+// 	src: url("/fonts/beyond_the_mountains.otf");
+// }
+
+h1,
+h2,
+h3 {
+	font-family: $heading_font;
+}
