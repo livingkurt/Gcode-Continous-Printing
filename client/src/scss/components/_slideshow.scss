@@ -1,0 +1,43 @@
+@use '../abstracts' as *;
+
+/* Slide Show */
+
+* {
+	box-sizing: border-box;
+}
+
+/* The grid: Four equal columns that floats next to each other */
+
+.img_column {
+	float: left;
+	width: 10%;
+	padding: 10px;
+}
+
+/* Style the images inside the grid */
+
+.img_column img {
+	opacity: 0.8;
+	cursor: pointer;
+	height: unset;
+	border-radius: $br_small_containers;
+}
+
+.img_column img:hover {
+	opacity: 1;
+}
+
+/* Clear floats after the columns */
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* The expanding image container */
+
+.container {
+	position: relative;
+	display: none;
+}

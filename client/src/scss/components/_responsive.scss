@@ -1,0 +1,72 @@
+
+.responsive_container {
+	// width: 50%; /* or whatever is required */
+	// text-align: center; /* ensures the image is always in the h-middle */
+	// overflow: hidden; /* hide the cropped portion */
+	width: 100%;
+	height: 72rem;
+}
+
+.responsive_img {
+	// position: relative; /* allows repositioning */
+	// left: 100%; /* move the whole width of the image to the right */
+	// margin-left: -200%; /* magic! */
+	// object-fit: cover;
+	max-width: 72rem;
+	max-height: 100rem;
+	height: auto;
+	width: 100%;
+	float: left;
+	// width: 72rem;
+	// height: 72rem;
+	object-fit: cover;
+}
+
+.group {
+	display: flex;
+	flex-wrap: wrap;
+	// gap: 10px;
+	--multiplier: calc(80rem - 100%);
+}
+
+.group_item {
+	// margin: 10px;
+	min-width: 40%;
+	max-width: 100%;
+	width: 50px;
+	// border-radius: 20px;
+	flex-grow: 1;
+	flex-basis: calc(var(--multiplier) * 999);
+}
+
+
+.colored_caps {
+	display: flex;
+	flex-wrap: wrap;
+	// gap: 10px;
+	--multiplier: calc(92rem - 100%);
+}
+
+.colored_caps_item {
+	// margin: 10px;
+	min-width: 48%;
+	max-width: 100%;
+	width: 50px;
+	border-radius: 20px;
+	flex-grow: 1;
+	flex-basis: calc(var(--multiplier) * 999);
+}
+
+.colored_caps_images {
+	// margin: 10px;
+	min-width: 48%;
+	max-width: 100%;
+	// width: 50px;
+	border-radius: 20px;
+}
+.cart_items {
+	display: flex;
+	flex-wrap: wrap;
+	// gap: 10px;
+	--multiplier: calc(21rem - 100%);
+}

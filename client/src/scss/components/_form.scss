@@ -1,0 +1,68 @@
+@use '../abstracts' as *;
+
+/* forms */
+
+.form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.form-container {
+	display: flex;
+	width: 28rem;
+	flex-direction: column;
+	max-width: 32rem;
+	padding: 2rem;
+	box-shadow: $bs_deep;
+	background-color: $theme_color_form;
+	border-radius: $br_small_containers;
+	list-style-type: none;
+	margin: 0 auto;
+	li {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 1rem;
+		margin-top: 1rem;
+	}
+}
+.edit-form-container {
+	display: flex;
+	// width: 80rem;
+	flex-direction: column;
+	max-width: 32rem;
+	padding: 2rem;
+	box-shadow: $bs_deep;
+	background-color: $theme_color_form;
+	border-radius: $br_small_containers;
+	list-style-type: none;
+	margin: 0 auto;
+	li {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 1rem;
+		margin-top: 1rem;
+	}
+}
+
+.form_input {
+	font-size: $font_size;
+	border-radius: $br_small_containers;
+	box-shadow: $bs_deep;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 1rem;
+	margin-top: 1rem;
+	width: 100%;
+}
+
+.form {
+	.form-item {
+		margin-bottom: 3rem;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}

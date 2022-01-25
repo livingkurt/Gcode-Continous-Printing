@@ -1,0 +1,24 @@
+@use '../abstracts' as *;
+
+
+.sponsor {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+	text-align: left;
+	border-radius: $br_small_containers;
+	box-shadow: 0;
+	transition: box-shadow 0.5s ease-out;
+	padding: 15px;
+}
+
+.sponsor-image {
+	max-width: 40rem;
+	max-height: 40rem;
+	border-radius: 2rem;
+	object-fit: cover;
+	object-position: 50% 50%;
+	// width: 400px;
+	// height: 400px;
+}

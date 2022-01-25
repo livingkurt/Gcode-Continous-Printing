@@ -1,0 +1,10 @@
+@use '../abstracts' as *;
+
+/* Home Page */
+
+.home_page_divs {
+	box-shadow: $bs_deep;
+	border-radius: $br_large_containers;
+	padding: 25px;
+	margin-bottom: 25px;
+}

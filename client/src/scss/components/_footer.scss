@@ -1,0 +1,18 @@
+@use '../abstracts' as *;
+
+footer {
+	background: linear-gradient(0deg, $theme_color_primary 0%, $theme_color_dark 100%);
+}
+
+.footer-image {
+	position: relative;
+	img {
+		width: 350px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin: -50px 0px 0px -50px;
+		transform: translate(-35%, -18%);
+		opacity: .2;
+	}
+}

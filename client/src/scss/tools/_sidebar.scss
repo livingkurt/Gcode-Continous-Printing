@@ -1,0 +1,73 @@
+@use '../abstracts' as *;
+
+/* Sidebar */
+
+.sidebar {
+	position: fixed;
+	transition: all .5s;
+	transform: translateX(-32rem);
+	width: 30rem;
+	background-color: $theme_color_sidebar;
+	height: 100%;
+	top: 129px;
+	padding: 10px;
+	z-index: 99;
+}
+
+.sidebar.open {
+	transform: translateX(0px);
+}
+
+.sidebar_dropdown {
+	position: relative;
+}
+.sidebar_dropdown_secondary {
+	position: relative;
+}
+
+.sidebar_dropdown_nested {
+	position: relative;
+}
+
+.sidebar_dropdown_container {
+	overflow: hidden;
+	height: auto;
+	max-height: 0px;
+	transition: all 0.5s;
+	left: 0;
+	list-style-type: none;
+	background-color: $theme_color_sidebar_primary;
+	margin: 0;
+	width: 100%;
+}
+
+.sidebar_dropdown_secondary_container {
+	overflow: hidden;
+	height: auto;
+	max-height: 0px;
+	transition: all 0.5s;
+	left: 0;
+	list-style-type: none;
+	background-color: $theme_color_sidebar_secondary;
+	margin: 0;
+	width: 100%;
+}
+
+.sidebar_dropdown_secondary_container:hover {
+	max-height: 600px;
+}
+.sidebar_dropdown_nested_container {
+	overflow: hidden;
+	height: auto;
+	max-height: 0px;
+	transition: all 0.5s;
+	left: 0;
+	list-style-type: none;
+	background-color: $theme_color_sidebar_nested;
+	margin: 0;
+	width: 100%;
+}
+
+.sidebar_dropdown_nested_container:hover {
+	max-height: 600px;
+}

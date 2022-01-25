@@ -1,0 +1,95 @@
+@use '../abstracts' as *;
+
+// Loading Gif
+
+.loading_gif {
+	height: 100px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -50px 0px 0px -50px;
+}
+
+.loading_png {
+	height: 100px;
+	z-index: 1;
+	position: absolute;
+	top: 50%;
+	left: 49.7%;
+	margin: -50px 0px 0px -50px;
+}
+.error_message_payment {
+	z-index: 2;
+	background: #9a4949;
+	padding: 15px;
+	border-radius: 20px;
+	// font-size: 20px;
+	position: fixed;
+	width: 332px;
+	top: 25%;
+	left: 50%;
+	margin-top: -50px;
+	margin-left: -165px;
+}
+.error_message {
+	// z-index: 2;
+	background: #9a4949;
+	// padding: 15px;
+	border-radius: 10px;
+	// font-size: 20px;
+	// position: fixed;
+	// width: 332px;
+	// top: 25%;
+	// left: 50%;
+	// margin-top: -50px;
+	// margin-left: -165px;
+}
+
+.payment_message {
+	z-index: 2;
+	background: $theme_color_header;
+	padding: 15px;
+	border-radius: 20px;
+	// font-size: 20px;
+	width: 332px;
+	position: fixed;
+	top: 25%;
+	left: 50%;
+	margin-top: -50px;
+	margin-left: -165px;
+}
+.added_to_cart_message {
+	z-index: 2;
+	background: $theme_color_primary;
+	padding: 15px;
+	border-radius: 20px;
+	// font-size: 20px;
+	width: 500px;
+	position: fixed;
+	top: 25%;
+	left: 50%;
+	margin-top: -50px;
+	margin-left: -250px;
+}
+
+// .payment_message {
+// 	position: absolute;
+// 	top: 60%;
+// 	left: 0;
+// 	background: white;
+// 	padding: 20px;
+// 	border-radius: 20px;
+// 	margin: -50px 0px 0px -50px;
+// 	text-align: center;
+// 	width: 100%;
+// 	margin-left: 10px;
+// }
+.payment_error_message {
+	position: absolute;
+	top: 70%;
+	left: 0;
+	margin: -50px 0px 0px -50px;
+	text-align: center;
+	width: 100%;
+	margin-left: 10px;
+}

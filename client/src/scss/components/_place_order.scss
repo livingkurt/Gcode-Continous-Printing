@@ -1,0 +1,59 @@
+@use '../abstracts' as *;
+
+/* Place Order */
+
+.placeorder {
+	display: flex;
+	flex-grow: wrap;
+	padding: 1rem;
+	justify-content: space-between;
+	color: $theme_color_phrase_font;
+}
+
+.placeorder-info {
+	flex: 6 1 60rem;
+}
+
+.placeorder-action {
+	flex: 1 0 34rem;
+	box-shadow: $bs_deep;
+	border-radius: $br_small_containers;
+	// background-color: #fcfcfc;
+	padding: 2rem;
+	background-color: transparent;
+	margin-bottom: 10px;
+}
+
+.placeorder-info > div {
+	box-shadow: $bs_deep;
+	border-radius: $br_small_containers;
+	// background-color: #fcfcfc;
+	padding: 2rem;
+	margin: 1rem;
+	background-color: transparent;
+}
+
+.placeorder-info > div:first-child {
+	margin-top: 0;
+}
+
+.placeorder-action > ul {
+	padding: 0;
+	list-style-type: none;
+}
+
+.placeorder-action > ul > li {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 1rem;
+}
+
+.placeorder-action > ul > li:last-child {
+	font-size: 2rem;
+	font-weight: bold;
+	color: $theme_color_phrase_font;
+}
+
+.placeorder-actions-payment > div {
+	width: 100%;
+}

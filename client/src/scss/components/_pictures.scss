@@ -1,0 +1,13 @@
+.alt_pictures_hidden {
+	display: none;
+	flex-wrap: wrap;
+}
+
+.alt_pictures_shown {
+	display: flex;
+	flex-wrap: wrap;
+}
+.alt_pictures_shown_shown {
+	display: none;
+	flex-wrap: wrap;
+}

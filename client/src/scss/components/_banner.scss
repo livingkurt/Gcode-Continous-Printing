@@ -1,0 +1,16 @@
+@use '../abstracts' as *;
+
+.banner {
+	background-color: $theme_color_primary;
+	z-index: 101;
+	height: 22px;
+	width: 100%;
+	font-size: 14px;
+	box-shadow: $bs_deep;
+	position: fixed;
+	// position: absolute;
+	right: 0;
+	left: 0;
+	z-index: 300;
+	top: 0;
+}

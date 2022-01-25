@@ -1,0 +1,51 @@
+@use '../abstracts' as *;
+// Shipping Rates
+
+.shipping_rates {
+	box-shadow: $bs_deep;
+	font-size: 1.5rem;
+	padding: .75em 2em 0.55em 1em;
+	background: $theme_color_secondary;
+	color: $theme_color_phrase_font;
+	border: 0;
+	// position: relative;
+	border-radius: 10px;
+	transition: all .5s ease;
+	font-family: "phrase_font";
+	border-radius: 10px 0 0 10px;
+}
+
+.select-label {
+	margin-right: 5px;
+}
+
+.custom-select-shipping_rates {
+	// position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+	background: $theme_color_primary;
+	height: 100%;
+	width: 8rem;
+	color: $theme_color_phrase_font;
+	font-family: 'phrase_font';
+	// pointer-events: none;
+	padding: 1rem;
+	border-radius: 0 10px 10px 0;
+	border: 0;
+}
+.custom-select-shipping_rates:hover {
+	background-color: $theme_color_primary_hover;
+}
+
+.custom-select-shipping_rates::before,
+.custom-select-shipping_rates::after {
+	--size: .4em;
+
+	content: '';
+	// position: absolute;
+	width: 0;
+	height: 0;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

@@ -6,9 +6,8 @@ module.exports = function(app) {
 		try {
 			const filename = req.body.filename;
 			const data = req.body.gcode;
-			// console.log({ filename, data });
 			fs.writeFile(
-				`/Volumes/macOS\ Data/Users/kurtlavacque/Documents/3D\ Printing/Projects/Printed/Glow\ LEDs/Glowskins/${filename}`,
+				`/Volumes/macOS\ Data/Users/kurtlavacque/Documents/3D\ Printing/Projects/Printed/Glow\ LEDs/${filename}`,
 				data,
 				(err) => {
 					if (err) throw err;

@@ -1,0 +1,28 @@
+@use '../abstracts' as *;
+
+#root {
+	height: 100vh;
+	height: calc(var(--vh, 1vh) * 100);
+}
+
+html {
+	font-size: 62.5%;
+	/* 1.6rem * 62.5 = 10px = 1rem */
+	box-sizing: border-box;
+	scroll-padding-top: 220px; /* height of sticky header */
+	scroll-margin-top: 220px;
+}
+
+body {
+	font: 1.6rem Helvetica;
+	font-family: $phrase_font;
+	margin: 0;
+	background-color: $theme_color_dark;
+	color: $theme_color_phrase_font;
+	scroll-padding-top: 220px; /* height of sticky header */
+	scroll-margin-top: 220px;
+}
+
+*:focus {
+	outline: none;
+}

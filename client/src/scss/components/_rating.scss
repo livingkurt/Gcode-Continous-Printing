@@ -1,0 +1,25 @@
+@use '../abstracts' as *;
+
+.rating span {
+	color: $theme_color_phrase_font;
+	font-size: 1.6rem;
+	margin: 0.1rem;
+}
+
+.rating span:last-child {
+	color: $theme_color_phrase_font;
+	font-size: 1.4rem;
+	margin-left: 5px;
+}
+.rating_textarea {
+	height: 150px;
+}
+
+.rating_textarea a > .rating > span:last-child {
+	color: $theme_color_phrase_font;
+}
+
+.star {
+	cursor: pointer;
+	transition: color 200ms;
+}

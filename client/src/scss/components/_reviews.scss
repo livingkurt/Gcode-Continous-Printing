@@ -1,0 +1,14 @@
+@use '../abstracts' as *;
+
+ul.review {
+	list-style-type: none;
+	padding: 0;
+}
+
+.review li {
+	margin-bottom: 2rem;
+}
+
+.review li > div {
+	margin: 0.5rem;
+}

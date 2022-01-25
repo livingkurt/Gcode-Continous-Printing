@@ -1,0 +1,66 @@
+@use '../abstracts' as *;
+
+
+select {
+	box-shadow: $bs_deep;
+	font-size: 1.5rem;
+	padding: .75em 2em 0.55em 1em;
+	background: #4d5061;
+	color: $theme_color_phrase_font;
+	border: 0;
+	position: relative;
+	border-radius: 10px;
+	transition: all .5s ease;
+	font-family: "phrase_font";
+}
+
+.select-label {
+	margin-right: 5px;
+}
+
+.custom-select {
+	position: relative;
+}
+
+select:hover {
+	background-color: $theme_color_primary_hover;
+}
+
+.custom-arrow {
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+	background: #3b3c47;
+	height: 100%;
+	width: 3rem;
+	pointer-events: none;
+	border-radius: 0 10px 10px 0;
+}
+
+.custom-arrow::before,
+.custom-arrow::after {
+	--size: .4em;
+
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.custom-arrow::before {
+	border-left: var(--size) solid transparent;
+	border-right: var(--size) solid transparent;
+	border-bottom: var(--size) solid rgba(255, 255, 255, 0.5);
+	top: 35%;
+}
+
+.custom-arrow::after {
+	border-left: var(--size) solid transparent;
+	border-right: var(--size) solid transparent;
+	border-top: var(--size) solid rgba(255, 255, 255, 0.5);
+	top: 65%;
+}
+

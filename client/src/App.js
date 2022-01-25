@@ -20,6 +20,7 @@ function App() {
 	const [ gcode_2_name, set_gcode_2_name ] = useState('');
 	const [ status, set_status ] = useState('');
 	const [ loading, set_loading ] = useState(false);
+	const [ color_change, set_color_change ] = useState(false);
 
 	const remove_print = `G1 X105 Y195 Z50 F8000 ; Move up and back
   
@@ -28,12 +29,37 @@ function App() {
   M300 S5274.04 P200 ; E8
   M300 S6271.93 P200 ; G8
   
-  G1 X105 Y195 Z1 F8000 ; Lower
+  
+
+  G4 S20
+
+	G1 X105 Y195 Z1 F8000 ; Lower
+
   G1 X105 Y1 Z1 F8000 ; Remove Print
   G1 X105 Y30 Z1 F8000 ; Shake it Out
   G1 X105 Y1 Z1 F8000 ; Shake it Out
   G1 X105 Y30 Z1 F8000 ; Shake it Out
+
+  ${color_change ? 'M600; Change Color' : ''}
   `.split('\n');
+	// const remove_print_with_color_change = `G1 X105 Y195 Z50 F8000 ; Move up and back
+
+	// M300 S3520 P200 ; A7
+	// M300 S4698.868 P200 ; D8
+	// M300 S5274.04 P200 ; E8
+	// M300 S6271.93 P200 ; G8
+
+	// G1 X105 Y195 Z1 F8000 ; Lower
+
+	// G4 S20
+
+	// G1 X105 Y1 Z1 F8000 ; Remove Print
+	// G1 X105 Y30 Z1 F8000 ; Shake it Out
+	// G1 X105 Y1 Z1 F8000 ; Shake it Out
+	// G1 X105 Y30 Z1 F8000 ; Shake it Out
+
+	// ${color_change && 'M600; Change Color'}
+	// `.split('\n');
 
 	const showFile_1 = async (e) => {
 		e.preventDefault();
@@ -127,6 +153,53 @@ function App() {
 		reader.readAsText(e.target.files[0]);
 		set_gcode_2_name(document.getElementById('file_2').files[0].name);
 	};
+	const showFolder = async (e) => {
+		e.preventDefault();
+		const reader = new FileReader();
+		let text = [];
+		const value = e.target.value;
+		console.log({ value });
+		// reader.onload = async (e) => {
+		// 	text = e.target.result;
+		// 	const gcode = text.split('\n');
+		// 	let beginning_2_array = [];
+		// 	let beginning_2_boolean = true;
+		// 	let middle_start = 0;
+		// 	let middle_finished = 0;
+		// 	for (let i = 0; i <= 100; i++) {
+		// 		if (gcode[i] === 'M83 ; use relative distances for extrusion') {
+		// 			beginning_2_boolean = false;
+		// 			beginning_2_array = [ ...beginning_2_array, gcode[i] ];
+		// 			middle_start = i + 1;
+		// 		} else if (beginning_2_boolean) {
+		// 			beginning_2_array = [ ...beginning_2_array, gcode[i] ];
+		// 		}
+		// 	}
+
+		// 	let ending_2_array = [];
+		// 	let ending_2_boolean = true;
+
+		// 	for (let i = gcode.length - 1; i >= gcode.length - 300; i--) {
+		// 		if (gcode[i] === 'G4 ; wait') {
+		// 			ending_2_array = [ ...ending_2_array, 'G4 ; wait' ];
+		// 			ending_2_boolean = false;
+		// 			middle_finished = i;
+		// 		} else if (ending_2_boolean) {
+		// 			ending_2_array = [ ...ending_2_array, gcode[i] ];
+		// 		}
+		// 	}
+		// 	const middle_2_array = gcode.slice(middle_start, middle_finished);
+		// 	const ending_2_forward = [ ...ending_2_array ];
+		// 	const ending_2_backwards = [ ...ending_2_array ].reverse();
+		// 	console.log({ ending_2_forward, ending_2_backwards });
+		// 	set_beginning_2(beginning_2_array);
+		// 	set_middle_2(middle_2_array);
+		// 	set_ending_2(ending_2_backwards);
+		// };
+
+		// reader.readAsText(e.target.files[0]);
+		// set_gcode_2_name(document.getElementById('file_2').files[0].name);
+	};
 
 	const create_new_gcode = async () => {
 		set_loading(true);
@@ -177,68 +250,97 @@ function App() {
 				<div className="w-125px" />
 			</header>
 			<div>
-				{loading && (
-					<div className="jc-c column">
-						<img
-							src={process.env.PUBLIC_URL + '/loading.gif'}
-							className="loading_gif"
-							alt="Loading Circle"
-							title="Loading Circle"
+				<div>
+					{loading && (
+						<div className="jc-c column">
+							<img
+								src={process.env.PUBLIC_URL + '/loading.gif'}
+								className="loading_gif"
+								alt="Loading Circle"
+								title="Loading Circle"
+							/>
+							<img
+								src={process.env.PUBLIC_URL + '/loading_overlay.png'}
+								className="loading_png"
+								alt="Loading Overlay"
+								title="Loading Overlay"
+							/>
+							{/* {loading_message()} */}
+						</div>
+					)}
+				</div>
+				<div className="column m-auto max-w-500px w-100per form">
+					<div className="w-100per">
+						<label htmlFor="color_change">Color Change</label>
+						<input
+							type="checkbox"
+							name="color_change"
+							defaultChecked={color_change}
+							id="color_change"
+							onChange={(e) => {
+								set_color_change(e.target.checked);
+							}}
 						/>
-						<img
-							src={process.env.PUBLIC_URL + '/loading_overlay.png'}
-							className="loading_png"
-							alt="Loading Overlay"
-							title="Loading Overlay"
-						/>
-						{/* {loading_message()} */}
 					</div>
-				)}
-			</div>
-			<div className="column m-auto max-w-500px w-100per form">
-				<div className="form-item">
-					<label className="mr-1rem w-50per fw-800">1/2 gcode</label>
-					<label className="btn primary w-50per">
-						<label className="">Choose gcode file</label>
+					<div className="form-item">
+						<label className="mr-1rem w-50per fw-800">1/2 gcode</label>
+						<label className="btn primary w-50per">
+							<label className="">Choose gcode file</label>
+							<input
+								className="btn primary"
+								type="file"
+								id="file_1"
+								multiple
+								onChange={(e) => showFile_1(e)}
+							/>
+						</label>
+					</div>
+					<label className="form-item">{gcode_1_name}</label>
+					<div className="form-item">
+						<label className="mr-1rem w-50per fw-800">2/2 gcode</label>
+						<label className="btn primary w-50per">
+							<label className="">Choose gcode file</label>
+							<input
+								className="btn primary"
+								type="file"
+								id="file_2"
+								multiple
+								onChange={(e) => showFile_2(e)}
+							/>
+						</label>
+					</div>
+					{/* <div className="form-item">
+						<label className="mr-1rem w-50per fw-800">File Location</label>
+						<label className="btn primary w-50per">
+							<label className="">Choose Folder</label>
+							<input
+								className="btn primary"
+								type="file"
+								id="file_2"
+								webkitdirectory
+								directory
+								multiple
+								onChange={(e) => showFolder(e)}
+							/>
+						</label>
+					</div> */}
+					<label className="form-item">{gcode_2_name}</label>
+					<div className="form-item">
+						<label className="mr-1rem w-50per fw-800">Number of Copies</label>
 						<input
-							className="btn primary"
-							type="file"
-							id="file_1"
-							multiple
-							onChange={(e) => showFile_1(e)}
+							type="number"
+							className="w-50per"
+							defaultValue={number_of_copies}
+							onChange={(e) => set_number_of_copies(e.target.value)}
 						/>
-					</label>
+					</div>
+					<div className="form-item">
+						<button className="btn primary w-100per" onClick={() => create_new_gcode()}>
+							Make Continuous Gcode
+						</button>
+					</div>
+					{status && <label className="form-item btn secondary">{status}</label>}
 				</div>
-				<label className="form-item">{gcode_1_name}</label>
-				<div className="form-item">
-					<label className="mr-1rem w-50per fw-800">2/2 gcode</label>
-					<label className="btn primary w-50per">
-						<label className="">Choose gcode file</label>
-						<input
-							className="btn primary"
-							type="file"
-							id="file_2"
-							multiple
-							onChange={(e) => showFile_2(e)}
-						/>
-					</label>
-				</div>
-				<label className="form-item">{gcode_2_name}</label>
-				<div className="form-item">
-					<label className="mr-1rem w-50per fw-800">Number of Copies</label>
-					<input
-						type="number"
-						className="w-50per"
-						defaultValue={number_of_copies}
-						onChange={(e) => set_number_of_copies(e.target.value)}
-					/>
-				</div>
-				<div className="form-item">
-					<button className="btn primary w-100per" onClick={() => create_new_gcode()}>
-						Make Continuous Gcode
-					</button>
-				</div>
-				{status && <label className="form-item btn secondary">{status}</label>}
 			</div>
 		</div>
 	);

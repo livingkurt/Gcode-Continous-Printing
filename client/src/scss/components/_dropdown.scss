@@ -1,0 +1,111 @@
+@use '../abstracts' as *;
+
+// Hover Dropdown
+
+.dropdown {
+	display: inline-block;
+	position: relative;
+}
+
+.dropdown-content {
+	position: absolute;
+	display: none;
+	right: 0;
+	padding: 1rem;
+	list-style-type: none;
+	z-index: 1;
+	background-color: $theme_color_header;
+	margin: 0;
+	border-radius: $br_small_containers;
+	box-shadow: $bs_deep;
+}
+
+.dropdown:hover .dropdown-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.dropdown-nav {
+	display: inline-block;
+	position: relative;
+}
+
+.dropdown-nav-content {
+	position: absolute;
+	display: none;
+	left: 0;
+	padding: 1rem;
+	list-style-type: none;
+	z-index: 1;
+	background-color: $theme_color_header;
+	margin: 0;
+	border-radius: $br_small_containers;
+	/* margin-top: 0.4rem; */
+	box-shadow: $bs_deep;
+}
+
+.dropdown-nav-subcategory {
+	display: inline-block;
+	position: relative;
+}
+
+.dropdown-nav-subcategory-content {
+	position: absolute;
+	display: none;
+	left: 268px;
+	top: -5px;
+	padding: 1rem;
+	list-style-type: none;
+	z-index: 1;
+	background-color: $theme_color_header;
+	margin: 0;
+	border-radius: $br_small_containers;
+	/* margin-top: 0.4rem; */
+	// box-shadow: $bs_deep;
+}
+.dropdown-nav-nested {
+	display: inline-block;
+	position: relative;
+}
+
+.dropdown-nav-nested-content {
+	position: absolute;
+	display: none;
+	left: 268px;
+	top: -5px;
+	padding: 1rem;
+	list-style-type: none;
+	z-index: 1;
+	background-color: $theme_color_header;
+	margin: 0;
+	border-radius: $br_small_containers;
+	/* margin-top: 0.4rem; */
+	// box-shadow: $bs_deep;
+}
+
+.dropdown-nav:hover .dropdown-nav-content {
+	display: flex;
+	flex-direction: column;
+}
+.dropdown-nav-subcategory:hover .dropdown-nav-subcategory-content {
+	display: flex;
+	flex-direction: column;
+}
+.dropdown-nav-nested:hover .dropdown-nav-nested-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.contact_dropdown {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	padding: 1rem;
+}
+
+.contact_options {
+	color: $theme_color_secondary_font;
+}
+.contact_grey_option {
+	color: gray;
+}

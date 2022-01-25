@@ -1,0 +1,37 @@
+
+.iframe-container {
+	position: relative;
+	width: 100%;
+	padding-bottom: 56.25%;
+	height: 0;
+
+	// max-width: 100rem;
+	// max-height: 50rem;
+}
+.iframe-container iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	// max-width: 100rem;
+	// max-height: 59rem;
+}
+.iframe-container-big {
+	position: relative;
+	width: 100%;
+	padding-bottom: 56.25%;
+	height: 0;
+
+	// max-width: 100rem;
+	// max-height: 50rem;
+}
+.iframe-container-big iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 62%;
+	// max-width: 100rem;
+	// max-height: 59rem;
+}
