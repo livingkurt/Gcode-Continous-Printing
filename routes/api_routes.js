@@ -1,7 +1,6 @@
 const fs = require('fs');
 
 module.exports = function(app) {
-	// Post One Pet
 	app.post('/api/gcode', async (req, res) => {
 		try {
 			const filename = req.body.filename;
@@ -11,8 +10,8 @@ module.exports = function(app) {
 				data,
 				(err) => {
 					if (err) throw err;
-					console.log('Results Received');
-					res.send('Results Received');
+					console.log('Gcode Continous File Created');
+					res.send('Gcode Continous File Created');
 				}
 			);
 		} catch (err) {
