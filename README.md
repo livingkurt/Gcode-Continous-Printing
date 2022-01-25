@@ -1,5 +1,5 @@
-# Gcode Batch Printing
-Turn your 3D Printer into a small factory with the Gcode Batch Printing Web App
+# Gcode Continous Printing
+Turn your 3D Printer into a small factory with the Gcode Continous Printing Web App
 
 This app allows you to print parts that need to be printed one at a time with an auto eject and start over feature so you dont have to start each print manually
 
@@ -19,7 +19,7 @@ Install Steps
 First clone this repo
 
 ```shell
-git@github.com:livingkurt/Gcode-Batch-Printing.git
+git@github.com:livingkurt/Gcode-Continous-Printing.git
 ```
 
 Install Dependancies
@@ -33,7 +33,7 @@ Start App
 npm start
 ```
 
-In Gcode Batch Printing
+In Gcode Continous Printing
 
 - Start app
 - Select your 1/2... file in the first file chooser
